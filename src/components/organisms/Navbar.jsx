@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-// import "bootstrap/dist/css/bootstrap.css";
 import Select from "react-select";
 import SearchBar from "../molecules/SearchBar";
 import imgLogo from "./../../assets/Logo-pokedex.webp";
@@ -18,6 +17,13 @@ const Navbar = ({ isPokemon } = props) => {
     { value: "strawberry", label: "Strawberry" },
     { value: "vanilla", label: "Vanilla" },
   ];
+  const colorStyles = {
+    control: (styles) => ({...styles, backgroundColor: 'black', color: 'white'}),
+    option: (styles, {data, isDisable, isFocused, isSelected}) => {
+      console.log('option', data, isDisable, isFocused, isSelected)
+      return {...styles, color: 'black'}
+    }
+  }
   return (
     <nav className="nav">
       <NavLink to={"/"}>
@@ -29,9 +35,10 @@ const Navbar = ({ isPokemon } = props) => {
             className="nav__select"
             options={options}
             onChange={handleChangeSelected}
-            defaultValue={"vanilla"}
+            styles={colorStyles}
           />
           <SearchBar />
+          <button className="nav__button">Search</button>
         </div>
       ) : (
         false

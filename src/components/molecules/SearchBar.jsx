@@ -10,6 +10,7 @@ const SearchBar = () => {
   };
   return (
     <input
+    className="input"
       type="text"
       placeholder="Search here"
       onChange={handleChangeInput}
