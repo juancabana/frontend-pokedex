@@ -18,12 +18,16 @@ const Navbar = ({ isPokemon } = props) => {
     { value: "vanilla", label: "Vanilla" },
   ];
   const colorStyles = {
-    control: (styles) => ({...styles, backgroundColor: 'black', color: 'white'}),
-    option: (styles, {data, isDisable, isFocused, isSelected}) => {
-      console.log('option', data, isDisable, isFocused, isSelected)
-      return {...styles, color: 'black'}
-    }
-  }
+    control: (styles) => ({
+      ...styles,
+      backgroundColor: "black",
+      color: "white",
+    }),
+    option: (styles, { data, isDisable, isFocused, isSelected }) => {
+      console.log("option", data, isDisable, isFocused, isSelected);
+      return { ...styles, color: "black" };
+    },
+  };
   return (
     <nav className="nav">
       <NavLink to={"/"}>
@@ -36,9 +40,12 @@ const Navbar = ({ isPokemon } = props) => {
             options={options}
             onChange={handleChangeSelected}
             styles={colorStyles}
+            placeholder="Find by..."
           />
-          <SearchBar />
-          <button className="nav__button">Search</button>
+          <div className="nav__input">
+            <SearchBar />
+            <button className="nav__button">Search</button>
+          </div>
         </div>
       ) : (
         false
