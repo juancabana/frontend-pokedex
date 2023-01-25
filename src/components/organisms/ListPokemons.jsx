@@ -10,6 +10,7 @@ const ListPokemons = () => {
         "Bulbasaur es una especie de Pokémon de tipo Planta/Veneno en la franquicia Pokémon de Nintendo y Game Freak.",
       ability: "overgrow",
       weight: 60,
+      height: 130,
       speed: 20,
       attack: 15,
       defense: 47,
@@ -24,6 +25,7 @@ const ListPokemons = () => {
         "Ivysaur es un Pokémon común de tipo planta, evolución de Bulbasaur. Evoluciona en ivisasur",
       ability: "chlorophyll",
       weight: 130,
+      height: 170,
       speed: 40,
       attack: 15,
       defense: 38,
@@ -31,62 +33,7 @@ const ListPokemons = () => {
       image:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
     },
-    {
-      id: 3,
-      name: "ivysaur",
-      description:
-        "Ivysaur es un Pokémon común de tipo planta, evolución de Bulbasaur. Evoluciona en ivisasur",
-      ability: "chlorophyll",
-      weight: 130,
-      speed: 40,
-      attack: 15,
-      defense: 38,
-      category: "water",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-    },
-    {
-      id: 4,
-      name: "ivysaur",
-      description:
-        "Ivysaur es un Pokémon común de tipo planta, evolución de Bulbasaur. Evoluciona en ivisasur",
-      ability: "chlorophyll",
-      weight: 130,
-      speed: 40,
-      attack: 15,
-      defense: 38,
-      category: "water",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-    },
-    {
-      id: 5,
-      name: "ivysaur",
-      description:
-        "Ivysaur es un Pokémon común de tipo planta, evolución de Bulbasaur. Evoluciona en ivisasur",
-      ability: "chlorophyll",
-      weight: 130,
-      speed: 40,
-      attack: 15,
-      defense: 38,
-      category: "water",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-    },
-    {
-      id: 6,
-      name: "ivysaur",
-      description:
-        "Ivysaur es un Pokémon común de tipo planta, evolución de Bulbasaur. Evoluciona en ivisasur",
-      ability: "chlorophyll",
-      weight: 130,
-      speed: 40,
-      attack: 15,
-      defense: 38,
-      category: "water",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-    },
+
   ];
   return (
     <section className="list-pokemon">
