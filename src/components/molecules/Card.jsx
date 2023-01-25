@@ -15,7 +15,7 @@ const Card = ({ data } = props) => {
           <div className="card__container_info">
             <h3 className="card__containt__title__text">{data.name}</h3>
             <p className="card__description">{data.description}</p>
-            <div className="card__containt__title">
+            <div className="card__containt_detail">
               <img width={30} src={pokeball} alt="" className="card__containt__pokeball" />
               <p className="card__containt__paragraph">{data.category}</p>
             </div>
