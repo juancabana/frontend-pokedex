@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const pokeball =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png";
+const pokeball = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/512px-Pok%C3%A9_Ball_icon.svg.png";
 
 const Card = ({ data } = props) => {
   return (

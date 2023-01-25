@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./../styles/global.css";
+import './../styles/pokemon.css'
 import Navbar from "../components/organisms/Navbar";
 import InfoPokemon from "../components/organisms/InfoPokemon";
 import { useLocation } from "react-router-dom";
