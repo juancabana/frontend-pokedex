@@ -8,7 +8,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home />,
   },
-  { path: "/pokemon", element: <Pokemon /> },
+  {
+    path: "/pokemon",
+    element: <Pokemon  />,
+  },
 ]);
 
 export default router;
