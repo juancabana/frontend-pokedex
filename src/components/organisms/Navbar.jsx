@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.css";
 import Select from "react-select";
 import SearchBar from "../molecules/SearchBar";
-import imgLogo from './../../assets/Logo-pokedex.webp'
+import imgLogo from "./../../assets/Logo-pokedex.webp";
 
 const Navbar = ({ isPokemon } = props) => {
   const [selected, setSelected] = useState({});
@@ -19,7 +20,9 @@ const Navbar = ({ isPokemon } = props) => {
   ];
   return (
     <nav className="nav">
-      <img height={150} src={imgLogo} alt="" className="nav__img" />
+      <NavLink to={"/"}>
+        <img height={150} src={imgLogo} alt="" className="nav__img" />
+      </NavLink>
       {!isPokemon ? (
         <div className="nav__search">
           <Select
