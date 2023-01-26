@@ -3,11 +3,11 @@ import { NavLink } from "react-router-dom";
 import Select from "react-select";
 import SearchBar from "../molecules/SearchBar";
 import imgLogo from "./../../assets/Logo-pokedex.webp";
-import { PokemonContext } from "./../../contexts/pokemon.context.js";
+// import { PokemonContext } from "./../../contexts/pokemon.context.js";
 import Swal from "sweetalert2";
 
 const Navbar = ({ isPokemon } = props) => {
-  const context = React.useContext(PokemonContext);
+  // const context = React.useContext(PokemonContext);
   const [valueInput, setValueInput] = useState();
 
   const [selected, setSelected] = useState();
@@ -45,7 +45,7 @@ const Navbar = ({ isPokemon } = props) => {
           message: "You have not selected the filter",
         })
       : async () => {
-          const res = await context.state.getPokemonByOption(selected, valueInput);
+          // const res = await context.state.getPokemonByOption(selected, valueInput);
           // console.log(res)
           // errorHandler(res);
         };
