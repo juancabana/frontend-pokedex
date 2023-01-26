@@ -1,35 +1,26 @@
 import React, { useEffect, useState } from "react";
 import Card from "../molecules/Card";
-// import { PokemonContext } from "./../../contexts/pokemon.context.js";
 import CircularProgress from "@mui/material/CircularProgress";
+// Redux
+import { fetchAllPokemons } from "./../../store/slices/pokemons/index.js";
+import { useDispatch, useSelector } from "react-redux";
 
 const ListPokemons = () => {
-  const [pokelist, setPokelist] = useState([]);
-
-  // const context = React.useContext(PokemonContext);
-
-  const setData = async () => {
-    // context.pokemons.length === 0
-    //   ? await context.getAllPokemonsContext()
-    //   : setPokelist(context.pokemons);
-    // setPokelist(context.pokemons);
-  };
+  const { list: pokelist } = useSelector((state) => state.pokemons);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setData();
-  }, [
-    // context.pokemons, pokelist
-  ]);
-  // console.log(context.pokemons);
-  // console.log("pokelist" + pokelist);
-
+    dispatch(fetchAllPokemons());
+  }, [dispatch]);
+  pokelist.success ? console.log(pokelist) : console.log(pokelist.pokemons);
+  // console.log(pokelist);
   return (
     <section className="list-pokemon">
       <div className="list-pokemon__wrapper">
-        {pokelist.length === 0 ? (
+        {pokelist.success !== true ? (
           <CircularProgress />
         ) : (
-          pokelist.pokemons.map((poke) => <Card key={poke.id} data={poke} />)
+          pokelist.pokemons.map((item) => <Card key={item.id} data={item} />)
         )}
       </div>
     </section>

@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Select from "react-select";
 import SearchBar from "../molecules/SearchBar";
 import imgLogo from "./../../assets/Logo-pokedex.webp";
-// import { PokemonContext } from "./../../contexts/pokemon.context.js";
 import Swal from "sweetalert2";
+// Redux
+import {
+  fetchPokemonByOption,
+  fetchAllPokemons,
+} from "./../../store/slices/pokemons/index.js";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = ({ isPokemon } = props) => {
-  // const context = React.useContext(PokemonContext);
-  const [valueInput, setValueInput] = useState();
+  const { list: state } = useSelector((state) => state.pokemons);
+  useEffect(() => {
+    state.success === false ? errorHandler(state.data) : false;
+    dispatch(fetchAllPokemons());
+  }, [state.success]);
+  const dispatch = useDispatch();
 
+  const [valueInput, setValueInput] = useState("");
   const [selected, setSelected] = useState();
 
   const handleChangeSelected = (selectedOption) => {
@@ -44,14 +54,10 @@ const Navbar = ({ isPokemon } = props) => {
           success: false,
           message: "You have not selected the filter",
         })
-      : async () => {
-          // const res = await context.state.getPokemonByOption(selected, valueInput);
-          // console.log(res)
-          // errorHandler(res);
-        };
+      : dispatch(fetchPokemonByOption(selected, valueInput));
   };
   const errorHandler = (res) => {
-    res.success
+    state.success
       ? false
       : Swal.fire({
           icon: "error",
@@ -61,6 +67,8 @@ const Navbar = ({ isPokemon } = props) => {
   };
   const handleChangeInput = (value) => {
     setValueInput(value);
+    console.log(valueInput.length);
+    valueInput.length === 1 ? dispatch(fetchAllPokemons()) : false;
   };
 
   return (
