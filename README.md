@@ -14,7 +14,7 @@ git clone https://github.com/juancabana/frontend-pokedex.git
 Then enter the folder you cloned with the following command
 
 ```bash
-cd backend-pokedex
+cd frontend-pokedex
 ```
 
 Use the package manager [npm](https://docs.npmjs.com/getting-started) to install Pokedex-backend.
@@ -24,21 +24,17 @@ then install the dependencies with the following command
 npm i
 ```
 
-## Configure
-After you have everything you need installed, you will need to create a file called ".env" inside the main "backend-pokedex" folder.
-
-inside the ".env" file you are going to write the following environment variables
-```bash
-PORT=3005
-DB_URI='mysql://uat2jyyrrkabuo3s:7vBBNDLq9p0saWkjzHbt@b67ll4il1djmn1zsxfsj-mysql.services.clever-cloud.com:3306/b67ll4il1djmn1zsxfsj'
-```
-
 
 ## Usage
 
 To run the project you can execute the following command
 ```bash
-npm run start
+npm run dev
+```
+
+You can go to the following address to verify that your project runs
+```bash
+http://localhost:5173/
 ```
 
 ## License
