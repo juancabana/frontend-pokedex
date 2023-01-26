@@ -1,12 +1,13 @@
 import React from "react";
 import { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ handleChangeInput, getPokemon } = props) => {
   const [searchInput, setSearchInput] = useState("");
 
-  const handleChangeInput = (e) => {
+  const handleChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
+    handleChangeInput(e.target.value);
   };
   return (
     <>
@@ -14,10 +15,10 @@ const SearchBar = () => {
         className="input"
         type="text"
         placeholder="Search here"
-        onChange={handleChangeInput}
+        onChange={handleChange}
         value={searchInput}
       />
-      <button className="nav__button">Search</button>
+      <button onClick={() => getPokemon()} className="nav__button">Search</button>
     </>
   );
 };

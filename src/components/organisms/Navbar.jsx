@@ -3,8 +3,13 @@ import { NavLink } from "react-router-dom";
 import Select from "react-select";
 import SearchBar from "../molecules/SearchBar";
 import imgLogo from "./../../assets/Logo-pokedex.webp";
+import { PokemonContext } from "./../../contexts/pokemon.context.js";
+import Swal from "sweetalert2";
 
 const Navbar = ({ isPokemon } = props) => {
+  const context = React.useContext(PokemonContext);
+  const [valueInput, setValueInput] = useState();
+
   const [selected, setSelected] = useState();
 
   const handleChangeSelected = (selectedOption) => {
@@ -33,6 +38,31 @@ const Navbar = ({ isPokemon } = props) => {
       return { ...styles, color: "black" };
     },
   };
+  const getPokemon = async () => {
+    typeof selected !== "string"
+      ? errorHandler({
+          success: false,
+          message: "You have not selected the filter",
+        })
+      : async () => {
+          const res = await context.state.getPokemonByOption(selected, valueInput);
+          // console.log(res)
+          // errorHandler(res);
+        };
+  };
+  const errorHandler = (res) => {
+    res.success
+      ? false
+      : Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: res.message,
+        });
+  };
+  const handleChangeInput = (value) => {
+    setValueInput(value);
+  };
+
   return (
     <nav className="nav">
       <NavLink to={"/"}>
@@ -48,7 +78,10 @@ const Navbar = ({ isPokemon } = props) => {
             placeholder="Find by..."
           />
           <div className="nav__input">
-            <SearchBar />
+            <SearchBar
+              handleChangeInput={handleChangeInput}
+              getPokemon={getPokemon}
+            />
           </div>
         </div>
       ) : (
