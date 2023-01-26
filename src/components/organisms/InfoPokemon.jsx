@@ -26,8 +26,9 @@ const InfoPokemon = ({ data } = props) => {
         </section>
       ) : (
         <div>
-          <h1>Access through the home page</h1>
-          <NavLink to={"/"}>Home</NavLink>
+          <h1 className="error__pokemon__page">Access through the home page</h1>
+          <br />
+          <NavLink to={"/"} id='error__pokemon__page__link'>Home</NavLink>
         </div>
       )}
     </>
