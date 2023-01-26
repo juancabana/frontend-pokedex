@@ -1,40 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../molecules/Card";
+import { PokemonContext } from "./../../contexts/pokemon.context.js";
 
 const ListPokemons = () => {
-  const pokemons = [
-    {
-      id: 1,
-      name: "Bulbasaur",
-      description:
-        "Bulbasaur es una especie de Pokémon de tipo Planta/Veneno en la franquicia Pokémon de Nintendo y Game Freak.",
-      ability: "overgrow",
-      weight: 60,
-      height: 130,
-      speed: 20,
-      attack: 15,
-      defense: 47,
-      category: "fire",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
-    },
-    {
-      id: 2,
-      name: "ivysaur",
-      description:
-        "Ivysaur es un Pokémon común de tipo planta, evolución de Bulbasaur. Evoluciona en ivisasur",
-      ability: "chlorophyll",
-      weight: 130,
-      height: 170,
-      speed: 40,
-      attack: 15,
-      defense: 38,
-      category: "water",
-      image:
-        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/2.svg",
-    },
+  const context = React.useContext(PokemonContext);
+  const [pokemons, setPokemons] = useState([]);
+  async function setData() {
+    await context.getAllPokemonsContext()
+    setPokemons(context.pokemons.pokemons)
+    // console.log(pokemons)
+  }
+  useEffect(() => {
+    setData()
+  }, [])
 
-  ];
   return (
     <section className="list-pokemon">
       <div className="list-pokemon__wrapper">

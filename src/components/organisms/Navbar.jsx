@@ -5,17 +5,22 @@ import SearchBar from "../molecules/SearchBar";
 import imgLogo from "./../../assets/Logo-pokedex.webp";
 
 const Navbar = ({ isPokemon } = props) => {
-  const [selected, setSelected] = useState({});
+  const [selected, setSelected] = useState();
 
   const handleChangeSelected = (selectedOption) => {
-    setSelected(selectedOption);
-    console.log(`Option selected:`, selectedOption);
+    setSelected(selectedOption.value);
   };
 
   const options = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+    { value: "id", label: "ID" },
+    { value: "name", label: "Name" },
+    { value: "ability", label: "Ability" },
+    { value: "weight", label: "Weight" },
+    { value: "height", label: "Height" },
+    { value: "speed", label: "Speed" },
+    { value: "attack", label: "Attack" },
+    { value: "defense", label: "Defense" },
+    { value: "category", label: "Category" },
   ];
   const colorStyles = {
     control: (styles) => ({
@@ -24,7 +29,7 @@ const Navbar = ({ isPokemon } = props) => {
       color: "white",
     }),
     option: (styles, { data, isDisable, isFocused, isSelected }) => {
-      console.log("option", data, isDisable, isFocused, isSelected);
+      // console.log("option", data, isDisable, isFocused, isSelected);
       return { ...styles, color: "black" };
     },
   };
@@ -44,7 +49,6 @@ const Navbar = ({ isPokemon } = props) => {
           />
           <div className="nav__input">
             <SearchBar />
-            <button className="nav__button">Search</button>
           </div>
         </div>
       ) : (

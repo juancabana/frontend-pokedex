@@ -9,13 +9,16 @@ const SearchBar = () => {
     setSearchInput(e.target.value);
   };
   return (
-    <input
-    className="input"
-      type="text"
-      placeholder="Search here"
-      onChange={handleChangeInput}
-      value={searchInput}
-    />
+    <>
+      <input
+        className="input"
+        type="text"
+        placeholder="Search here"
+        onChange={handleChangeInput}
+        value={searchInput}
+      />
+      <button className="nav__button">Search</button>
+    </>
   );
 };
 
