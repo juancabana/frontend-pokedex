@@ -5,22 +5,19 @@ import SearchBar from "../molecules/SearchBar";
 import imgLogo from "./../../assets/Logo-pokedex.webp";
 import Swal from "sweetalert2";
 // Redux
-import {
-  fetchPokemonByOption,
-  fetchAllPokemons,
-} from "./../../store/slices/pokemons/index.js";
-import { useDispatch, useSelector } from "react-redux";
+import { fetchPokemonByOption, fetchAllPokemons } from "./../../store/slices/pokemons/index.js";
+import {useDispatch, useSelector} from 'react-redux'
 
 const Navbar = ({ isPokemon } = props) => {
-  const { list: state } = useSelector((state) => state.pokemons);
-  useEffect(() => {
-    state.success === false ? errorHandler(state.data) : false;
-    dispatch(fetchAllPokemons());
-  }, [state.success]);
-  const dispatch = useDispatch();
+  const {list: state} = useSelector(state => state.pokemons)
+  useEffect(()=> {
+    state.success === false? errorHandler(state.data) : false;
+    dispatch(fetchAllPokemons())
+  }, [state.success])
+  const dispatch = useDispatch()
 
-  const [valueInput, setValueInput] = useState("");
-  const [selected, setSelected] = useState();
+  const [valueInput, setValueInput] = useState('');
+  const [selected, setSelected] = useState(null);
 
   const handleChangeSelected = (selectedOption) => {
     setSelected(selectedOption.value);
@@ -49,12 +46,17 @@ const Navbar = ({ isPokemon } = props) => {
     },
   };
   const getPokemon = async () => {
-    typeof selected !== "string"
-      ? errorHandler({
-          success: false,
-          message: "You have not selected the filter",
-        })
-      : dispatch(fetchPokemonByOption(selected, valueInput));
+    valueInput === ''
+      ? Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: 'you have not written anything',
+      }) : selected === null ? Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: 'You have not selected the filter',
+      })
+      : dispatch(fetchPokemonByOption(selected, valueInput))
   };
   const errorHandler = (res) => {
     state.success
@@ -67,10 +69,11 @@ const Navbar = ({ isPokemon } = props) => {
   };
   const handleChangeInput = (value) => {
     setValueInput(value);
-    console.log(valueInput.length);
-    valueInput.length === 1 ? dispatch(fetchAllPokemons()) : false;
-  };
+    console.log(valueInput.length)
+    valueInput.length === 1 ? dispatch(fetchAllPokemons()) : false
 
+  };
+  console.log(selected)
   return (
     <nav className="nav">
       <NavLink to={"/"}>
