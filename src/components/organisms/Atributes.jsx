@@ -29,7 +29,7 @@ const Atributes = ({ data } = props) => {
             Height
           </p>
         </div>
-        <p>{data.weight} kg</p>
+        <p>{data.height} kg</p>
  </div>
  <div className="info_pokemon__datails__item__wrapper_atribute">
 
@@ -39,7 +39,7 @@ const Atributes = ({ data } = props) => {
             Weight
           </p>
         </div>
-        <p>{data.height} cm</p>
+        <p>{data.weight} cm</p>
       </div>
       </div>
 

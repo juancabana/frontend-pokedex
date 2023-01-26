@@ -23,10 +23,11 @@ export const getPokemonByOption = async ({ dispatch, option, value }) => {
     const res = response.json();
     const pokemon = await res.then((res) => {
       res.success
-        ? dispatch(setPokemonList({ ...res, pokemons: [res.pokemon] }))
+        ?  dispatch(setPokemonList({ ...res, pokemons: res.pokemons }))
         : dispatch(setErrorData(res));
+      console.log(res);
     });
-
+    
     return pokemon;
   } catch (error) {
     throw new Error(error);

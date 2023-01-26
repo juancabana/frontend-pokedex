@@ -12,7 +12,7 @@ const ListPokemons = () => {
   useEffect(() => {
     dispatch(fetchAllPokemons());
   }, [dispatch]);
-  pokelist.success ? console.log(pokelist) : console.log(pokelist.pokemons);
+  // pokelist.success ? console.log(pokelist) : console.log(pokelist.pokemons);
   // console.log(pokelist);
   return (
     <section className="list-pokemon">

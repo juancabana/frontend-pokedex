@@ -69,11 +69,11 @@ const Navbar = ({ isPokemon } = props) => {
   };
   const handleChangeInput = (value) => {
     setValueInput(value);
-    console.log(valueInput.length)
+    // console.log(valueInput.length)
     valueInput.length === 1 ? dispatch(fetchAllPokemons()) : false
 
   };
-  console.log(selected)
+  // console.log(selected)
   return (
     <nav className="nav">
       <NavLink to={"/"}>
