@@ -54,9 +54,9 @@ p {
   border-width: 0px;
   border-radius: 5px 0px 0px 5px;
   font-size: 15px;
+  padding-left: 15px;
 }
 .input::placeholder {
-  padding-left: 15px;
   font-size: larger;
 }
 .nav__button {
