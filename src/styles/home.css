@@ -1,4 +1,6 @@
-
+.home {
+  margin-bottom: 3rem;
+}
 /* Pokemon list */
 .list-pokemon {
     display: flex;
