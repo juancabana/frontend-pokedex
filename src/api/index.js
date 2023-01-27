@@ -3,7 +3,7 @@ import {
   setErrorData,
 } from "./../store/slices/pokemons/index.js";
 
-const URL = "http://localhost:3005/pokedex/pokemon/";
+const URL = `https://pokedex-backend-byru.onrender.com/pokedex/pokemon/`;
 
 export const getAllPokemons = async (dispatch) => {
   try {
