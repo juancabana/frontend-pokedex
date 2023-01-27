@@ -31,6 +31,8 @@
   
   /* Card */
   .card {
+    position: relative;
+    
     background-color: #6b6b6b;
     max-width: 490px;
     min-width: 380px;
@@ -38,6 +40,11 @@
     border-radius: 5px;
     overflow: hidden;
     border: 2px solid #6b6b6b;
+  }
+  .card__id {
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
   .card_wrapper {
     display: flex;
