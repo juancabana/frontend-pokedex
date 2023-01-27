@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./../styles/global.css";
-import './../styles/pokemon.css'
+import "./../styles/pokemon.css";
 import Navbar from "../components/organisms/Navbar";
 import InfoPokemon from "../components/organisms/InfoPokemon";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const Pokemon = () => {
   const [data, setData] = useState({});
@@ -15,6 +16,11 @@ const Pokemon = () => {
 
   return (
     <div className="pokemon">
+      <div className="back__icon">
+        <NavLink to={'/'}>
+          <ArrowBackIcon sx={{ fontSize: 70 }} />
+        </NavLink>
+      </div>
       <Navbar isPokemon={true} />
       <InfoPokemon data={data} />
     </div>

@@ -1,4 +1,9 @@
 /* Section main */
+.back__icon {
+  position: absolute;
+    display: flex;
+    padding: 50px;
+}
 .info_pokemon {
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -87,6 +92,11 @@
 
 
 @media (max-width: 600px) {
+  .back__icon {
+    position: absolute;
+      display: flex;
+      padding: 0px;
+  }
     .info_pokemon {
         margin-left: 5px;
         margin-right: 5px;
