@@ -6,6 +6,9 @@ const pokeball = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%
 const Card = ({ data } = props) => {
   return (
     <div className="card">
+      <h3 className="card__id">#
+        {data.id}
+      </h3>
       <NavLink to={"/pokemon"} state={data} exact="true">
         <div className="card_wrapper">
           <div className="card__image__container">
